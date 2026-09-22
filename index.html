@@ -228,6 +228,16 @@
   }
   .team-name.home { text-align: right; }
   .team-name.away { text-align: left; }
+  .team-block { display: flex; flex-direction: column; gap: 0.15rem; }
+  .team-block.home-block { align-items: flex-end; }
+  .team-block.away-block { align-items: flex-start; }
+  .side-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
   .team-name.winner { color: var(--turf-light); }
   :root[data-theme="dark"] .team-name.winner,
   @media (prefers-color-scheme: dark) { .team-name.winner { color: var(--pitch); } }
@@ -681,11 +691,17 @@
         html += `
         <div class="match-card">
           <div class="match-teams">
-            <div class="team-name home ${homeWins ? 'winner' : ''}">${escapeHtml(m.home)}</div>
+            <div class="team-block home-block">
+              <span class="side-label">Home</span>
+              <div class="team-name home ${homeWins ? 'winner' : ''}">${escapeHtml(m.home)}</div>
+            </div>
             ${hasScore
               ? `<div class="score-block">${m.homeScore}<span class="dash">&ndash;</span>${m.awayScore}</div>`
               : `<div class="score-block tbd">${escapeHtml(m.time)}</div>`}
-            <div class="team-name away ${awayWins ? 'winner' : ''}">${escapeHtml(m.away)}</div>
+            <div class="team-block away-block">
+              <span class="side-label">Away</span>
+              <div class="team-name away ${awayWins ? 'winner' : ''}">${escapeHtml(m.away)}</div>
+            </div>
           </div>
           <div class="match-meta">
             <span class="status-pill ${statusClass}">${escapeHtml(m.status)}</span>
