@@ -483,9 +483,9 @@
       time: "12:30 PM CDT",
       home: "The Hive",
       away: "Sting G2014/15 T Powell",
-      homeScore: null,
-      awayScore: null,
-      status: "Scheduled",
+      homeScore: 7,
+      awayScore: 0,
+      status: "Final",
       location: "Beacon Park (U90C) - 7A",
       division: "RPL"
     },
@@ -496,10 +496,62 @@
       time: "5:00 PM CDT",
       home: "Shreveport United 14/15G Blue",
       away: "The Hive",
+      homeScore: 2,
+      awayScore: 2,
+      status: "Final",
+      location: "Beacon Park (U90C) - 7B",
+      division: "RPL"
+    },
+    {
+      matchNum: 2789,
+      date: "2026-10-10",
+      dateLabel: "Oct 10, 2026",
+      time: "11:00 AM CDT",
+      home: "The Hive",
+      away: "Texas Warriors FC U12G Red",
+      homeScore: 6,
+      awayScore: 2,
+      status: "Final",
+      location: "TOCA The Colony - 3",
+      division: "RPL"
+    },
+    {
+      matchNum: 2778,
+      date: "2026-10-10",
+      dateLabel: "Oct 10, 2026",
+      time: "3:30 PM CDT",
+      home: "The Hive",
+      away: "DKSC 2014/15G WTX Guillen",
+      homeScore: 2,
+      awayScore: 2,
+      status: "Final",
+      location: "TOCA The Colony - 2",
+      division: "RPL"
+    },
+    {
+      matchNum: 2798,
+      date: "2026-10-24",
+      dateLabel: "Oct 24, 2026",
+      time: "9:30 AM CDT",
+      home: "AlphaForms G2014/15",
+      away: "The Hive",
       homeScore: null,
       awayScore: null,
       status: "Scheduled",
-      location: "Beacon Park (U90C) - 7B",
+      location: "Ford Sports Village @ The Z-Plex - Palmer",
+      division: "RPL"
+    },
+    {
+      matchNum: 2794,
+      date: "2026-10-24",
+      dateLabel: "Oct 24, 2026",
+      time: "2:00 PM CDT",
+      home: "Sting WTX G2014/15 R Franco",
+      away: "The Hive",
+      homeScore: null,
+      awayScore: null,
+      status: "Scheduled",
+      location: "Ford Sports Village @ The Z-Plex - Palmer",
       division: "RPL"
     },
     {
@@ -535,17 +587,17 @@
       time: "2:30 PM CDT",
       home: "Paris Saint-Germain Academy DFW PSG Longview U14G",
       away: "The Hive",
-      homeScore: null,
-      awayScore: null,
-      status: "Scheduled",
+      homeScore: 5,
+      awayScore: 3,
+      status: "Final",
       location: "Lindsey Park - 09",
       division: "ETPL"
     },
     {
       matchNum: 396,
-      date: "2026-10-03",
-      dateLabel: "Oct 3, 2026",
-      time: "2:00 PM CDT",
+      date: "2026-10-17",
+      dateLabel: "Oct 17, 2026",
+      time: "8:00 AM CDT",
       home: "East Texas United SC ETX Gil 13U G",
       away: "The Hive",
       homeScore: null,
@@ -725,12 +777,12 @@
 
   function isVenueMappable(location) {
     const loc = location.trim().toLowerCase();
-    return loc.startsWith('lindsey park') || loc.startsWith('beacon park');
+    return loc.startsWith('lindsey park') || loc.startsWith('beacon park') || loc.startsWith('ford sports village');
   }
 
   function openMapModal(venueName) {
     const loc = venueName.trim().toLowerCase();
-    const isBeacon = loc.startsWith('beacon park');
+    const isBeacon = loc.startsWith('beacon park') || loc.startsWith('ford sports village');
     document.getElementById('mapModalTitle').textContent = isBeacon ? 'Beacon Fields & Z-Plex — Ford Sports Village' : venueName;
     document.getElementById('mapModalImg').src = isBeacon ? BEACON_PARK_MAP : LINDSEY_PARK_MAP;
     document.getElementById('mapModalOverlay').classList.add('open');
